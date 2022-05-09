@@ -1,18 +1,19 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import { useSelector } from 'react-redux';
+import { TodoAction } from '../action/TodoAction';
 
 //Single todo item component
 const TodoItem = (props) => {
     //Get todoList from todoReducer
     const todoList = useSelector(state => state.todos.todoList)
-    //Use for all the dispatch actions
-    const dispatch = useDispatch();
+
+    const { handleTodo } = TodoAction();
 
     //Remove single todo in the list
     const removeTodoItem = (todoId) => {
         //filter to get the todoId which need to be remove
         let newTodoList = todoList.filter(item => item.id !== todoId);
-        dispatch({type: 'REMOVE_TODO', payload: newTodoList})
+        handleTodo('REMOVE_TODO', newTodoList)
 
     }
 

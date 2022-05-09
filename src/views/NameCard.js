@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {useSelector} from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import EditNameCard from '../components/EditNameCard';
 
 const NameCard = () => {
@@ -36,11 +36,11 @@ const NameCard = () => {
                             : (
                                 <i className="material-icons">create</i>
                             )
-}</button>
+                        }</button>
                 </div>
             </div>
-            {isEdit && <EditNameCard/>
-}
+            {isEdit && <EditNameCard />
+            }
 
         </section>
     );

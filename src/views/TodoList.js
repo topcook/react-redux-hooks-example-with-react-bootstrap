@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
-import { useSelector,useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import TodoItem from '../components/TodoItem';
+import { TodoAction } from '../action/TodoAction';
 
 
 const TodoList = () => {
@@ -10,8 +11,7 @@ const TodoList = () => {
   //Get todoList from todoReducer
   const todoList = useSelector(state => state.todos.todoList);
 
-  //Use for all the dispatch actions
-  const dispatch = useDispatch();
+  const { handleTodo } = TodoAction()
 
   //Local state for the input
   const [inputTodo,setInputTodo] =  useState('');
@@ -34,7 +34,7 @@ const TodoList = () => {
             content:inputTodo
         }
          //Add new todo item into List with the action
-        dispatch({type:'ADD_TODO',payload:newTodoObject});
+         handleTodo('ADD_TODO', newTodoObject);
         //Empty input 
         setInputTodo('');
     }
