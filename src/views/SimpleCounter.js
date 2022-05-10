@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { CountAction } from '../action/CountAction';
-import { Col, Row } from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 
 const SimpleCounter = () => {
   //Get counter from counterReducer
